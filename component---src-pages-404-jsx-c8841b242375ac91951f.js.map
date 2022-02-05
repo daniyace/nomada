@@ -1,0 +1,1 @@
+{"version":3,"file":"component---src-pages-404-jsx-c8841b242375ac91951f.js","mappings":"0HAMA,UAJiB,WACf,OAAO","sources":["webpack://nomada/./src/pages/404.jsx"],"sourcesContent":["import React from 'react';\r\n\r\nconst NotFound = () => {\r\n  return <div>NotFound</div>;\r\n};\r\n\r\nexport default NotFound;\r\n"],"names":[],"sourceRoot":""}
