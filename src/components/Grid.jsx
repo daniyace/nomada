@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Masonry from 'react-masonry-css';
-import Swal from 'sweetalert2';
 import useSWR from 'swr';
 import Cosmic from 'cosmicjs';
 import Card from './card';
