@@ -1,9 +1,9 @@
 module.exports = {
+  pathPrefix: '/nomada',
   siteMetadata: {
     title: `nomada`,
     siteUrl: `https://daniyace.github.io/nomada/`,
   },
-  pathPrefix: '/nomada',
   plugins: [
     `gatsby-plugin-react-helmet`,
     'gatsby-plugin-sass',

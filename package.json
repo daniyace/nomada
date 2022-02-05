@@ -8,7 +8,6 @@
     "gatsby"
   ],
   "scripts": {
-    "predeploy": "npm run build",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "develop": "gatsby develop",
     "start": "gatsby develop -H 0.0.0.0",
