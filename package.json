@@ -2,23 +2,34 @@
   "name": "nomada",
   "version": "1.0.0",
   "private": true,
-  "description": "nomada",
-  "author": "Dan Vega",
+  "description": "Carta de nomada",
+  "author": "Daniyace",
   "keywords": [
     "gatsby"
   ],
   "scripts": {
     "develop": "gatsby develop",
-    "start": "gatsby develop",
+    "start": "gatsby develop -H 0.0.0.0",
     "build": "gatsby build",
-    "serve": "gatsby serve",
+    "serve": "gatsby serve -H 0.0.0.0",
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@popperjs/core": "^2.11.2",
+    "axios": "^0.25.0",
+    "bootstrap": "^5.1.3",
+    "framer-motion": "^6.2.4",
     "gatsby": "^4.6.2",
+    "gatsby-plugin-google-fonts": "^1.0.1",
+    "gatsby-plugin-manifest": "^4.6.0",
+    "gatsby-plugin-offline": "^5.6.0",
+    "gatsby-plugin-react-helmet": "^5.6.0",
+    "gatsby-plugin-react-svg": "^3.1.0",
     "gatsby-plugin-sass": "^5.6.0",
+    "gh-pages": "^3.2.3",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0",
     "sass": "^1.49.7"
   }
 }
