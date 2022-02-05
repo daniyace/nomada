@@ -1,54 +1,44 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
 <h1 align="center">
-  Gatsby minimal starter
+  Web menu for the Nomada restaurant
 </h1>
 
-## 🚀 Quick start
+## 🚀 Requirements to run the app
 
-1.  **Create a Gatsby site.**
+1.  **NodeJS**
+2.  **GatsbyJS CLI**
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+To install node_modules, run:
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
+```shell
+npm install
+```
 
-2.  **Start developing.**
+or
 
-    Navigate into your new site’s directory and start it up.
+```shell
+yarn install
+```
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+To run the app, run:
 
-3.  **Open the code and start customizing!**
+```shell
+npm run start
+```
 
-    Your site is now running at http://localhost:8000!
+or
 
-    Edit `src/pages/index.js` to see your site update in real-time!
+```shell
+yarn run start
+```
 
-4.  **Learn more**
+To deploy on gh-pages, run:
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+```shell
+npm run deploy
+```
 
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+or
 
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-## 🚀 Quick start (Gatsby Cloud)
-
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
-
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal)
+```shell
+yarn run deploy
+```
