@@ -3,7 +3,7 @@ module.exports = {
     title: `nomada`,
     siteUrl: `https://daniyace.github.io/`,
   },
-  pathPrefix: '/nomada',
+  pathPrefix: '/',
   plugins: [
     `gatsby-plugin-react-helmet`,
     'gatsby-plugin-sass',
