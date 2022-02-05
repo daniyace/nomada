@@ -49,6 +49,18 @@ const Layout = ({ children }) => {
         </div>
       </nav>
       {children}
+      <div className='container text-center mb-1'>
+        <small className='bottom-text'>
+          2022 Nómada &copy; Desarrollado por{' '}
+          <a
+            href='https://github.com/daniyace'
+            target={'_blank'}
+            rel='noopener noreferrer'
+          >
+            Daniyace
+          </a>
+        </small>
+      </div>
     </>
   );
 };

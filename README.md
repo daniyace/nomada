@@ -7,37 +7,37 @@
 1.  **NodeJS**
 2.  **GatsbyJS CLI**
 
-To install node_modules, run:
+  To install node_modules, run:
 
 ```shell
 npm install
 ```
 
-or
+  or
 
 ```shell
 yarn install
 ```
 
-To run the app, run:
+  To run the app, run:
 
 ```shell
 npm run start
 ```
 
-or
+  or
 
 ```shell
 yarn run start
 ```
 
-To deploy on gh-pages, run:
+  To deploy on gh-pages, run:
 
 ```shell
 npm run deploy
 ```
 
-or
+  or
 
 ```shell
 yarn run deploy

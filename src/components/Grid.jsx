@@ -1,206 +1,65 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import Masonry from 'react-masonry-css';
-import '../styles/grid.sass';
+import Swal from 'sweetalert2';
+import useSWR from 'swr';
+import Cosmic from 'cosmicjs';
 import Card from './card';
+import '../styles/grid.sass';
+
+const api = Cosmic();
+
+const bucket = api.bucket({
+  slug: 'nomada-menu',
+  read_key: '48zpPNPQZB7NwgDJ5jAXBcVdebzxBEHBhnyuvN5l7ZRYoKIuuI',
+});
+
+const fetchPosts = async () => {
+  const data = await bucket.getObjects({
+    props: 'type,metadata',
+  });
+  return data;
+};
 
 const Grid = () => {
   const [bebidas, setBebidas] = useState([]);
-  const [isBebidasLoading, setIsBebidasLoading] = useState(true);
   const [mixologia, setMixologia] = useState([]);
-  const [isMixologiaLoading, setIsMixologiaLoading] = useState(true);
   const [tequilas, setTequilas] = useState([]);
-  const [isTequilasLoading, setIsTequilasLoading] = useState(true);
   const [whisky, setWhisky] = useState([]);
-  const [isWhiskyLoading, setIsWhiskyLoading] = useState(true);
   const [Cognac, setCognac] = useState([]);
-  const [isCognacLoading, setIsCognacLoading] = useState(true);
   const [gin, setGin] = useState([]);
-  const [isGinLoading, setIsGinLoading] = useState(true);
   const [brandy, setBrandy] = useState([]);
-  const [isBrandyLoading, setIsBrandyLoading] = useState(true);
   const [ron, setRon] = useState([]);
-  const [isRonLoading, setIsRonLoading] = useState(true);
   const [vodka, setVodka] = useState([]);
-  const [isVodkaLoading, setIsVodkaLoading] = useState(true);
   const [vino, setVino] = useState([]);
-  const [isVinoLoading, setIsVinoLoading] = useState(true);
   const [cerveza, setCerveza] = useState([]);
-  const [isCervezaLoading, setIsCervezaLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const getBebidas = async () => {
-    setIsBebidasLoading(true);
-    await axios
-      .get(
-        'https://api.cosmicjs.com/v2/buckets/nomada-menu/objects?pretty=true&query=%7B%22type%22%3A%22bebidas%22%7D&read_key=48zpPNPQZB7NwgDJ5jAXBcVdebzxBEHBhnyuvN5l7ZRYoKIuuI&limit=20&props=metadata,'
-      )
-      .then((res) => {
-        if (res.data) {
-          setBebidas(res.data.objects);
-          setIsBebidasLoading(false);
-        }
-      });
-  };
-
-  const getMixologia = async () => {
-    setIsMixologiaLoading(true);
-    await axios
-      .get(
-        'https://api.cosmicjs.com/v2/buckets/nomada-menu/objects?pretty=true&query=%7B%22type%22%3A%22mixologias%22%7D&read_key=48zpPNPQZB7NwgDJ5jAXBcVdebzxBEHBhnyuvN5l7ZRYoKIuuI&limit=20&props=metadata,'
-      )
-      .then((res) => {
-        if (res.data) {
-          setMixologia(res.data.objects);
-          setIsMixologiaLoading(false);
-        }
-      });
-  };
-
-  const getTequilas = async () => {
-    setIsTequilasLoading(true);
-    await axios
-      .get(
-        'https://api.cosmicjs.com/v2/buckets/nomada-menu/objects?pretty=true&query=%7B%22type%22%3A%22tequilas%22%7D&read_key=48zpPNPQZB7NwgDJ5jAXBcVdebzxBEHBhnyuvN5l7ZRYoKIuuI&limit=20&props=metadata,'
-      )
-      .then((res) => {
-        if (res.data) {
-          setTequilas(res.data.objects);
-          setIsTequilasLoading(false);
-        }
-      });
-  };
-
-  const getWhisky = async () => {
-    setIsWhiskyLoading(true);
-    await axios
-
-      .get(
-        'https://api.cosmicjs.com/v2/buckets/nomada-menu/objects?pretty=true&query=%7B%22type%22%3A%22whiskies%22%7D&read_key=48zpPNPQZB7NwgDJ5jAXBcVdebzxBEHBhnyuvN5l7ZRYoKIuuI&limit=20&props=metadata,'
-      )
-      .then((res) => {
-        if (res.data) {
-          setWhisky(res.data.objects);
-          setIsWhiskyLoading(false);
-        }
-      });
-  };
-
-  const getCognac = async () => {
-    setIsCognacLoading(true);
-    await axios
-      .get(
-        'https://api.cosmicjs.com/v2/buckets/nomada-menu/objects?pretty=true&query=%7B%22type%22%3A%22cognacs%22%7D&read_key=48zpPNPQZB7NwgDJ5jAXBcVdebzxBEHBhnyuvN5l7ZRYoKIuuI&limit=20&props=metadata,'
-      )
-      .then((res) => {
-        if (res.data) {
-          setCognac(res.data.objects);
-          setIsCognacLoading(false);
-        }
-      });
-  };
-
-  const getGin = async () => {
-    setIsGinLoading(true);
-    await axios
-      .get(
-        'https://api.cosmicjs.com/v2/buckets/nomada-menu/objects?pretty=true&query=%7B%22type%22%3A%22ginegras%22%7D&read_key=48zpPNPQZB7NwgDJ5jAXBcVdebzxBEHBhnyuvN5l7ZRYoKIuuI&limit=20&props=metadata,'
-      )
-      .then((res) => {
-        if (res.data) {
-          setGin(res.data.objects);
-          setIsGinLoading(false);
-        }
-      });
-  };
-
-  const getBrandy = async () => {
-    setIsBrandyLoading(true);
-    await axios
-      .get(
-        'https://api.cosmicjs.com/v2/buckets/nomada-menu/objects?pretty=true&query=%7B%22type%22%3A%22brandies%22%7D&read_key=48zpPNPQZB7NwgDJ5jAXBcVdebzxBEHBhnyuvN5l7ZRYoKIuuI&limit=20&props=metadata,'
-      )
-      .then((res) => {
-        if (res.data) {
-          setBrandy(res.data.objects);
-          setIsBrandyLoading(false);
-        }
-      });
-  };
-
-  const getRon = async () => {
-    setIsRonLoading(true);
-    await axios
-
-      .get(
-        'https://api.cosmicjs.com/v2/buckets/nomada-menu/objects?pretty=true&query=%7B%22type%22%3A%22rons%22%7D&read_key=48zpPNPQZB7NwgDJ5jAXBcVdebzxBEHBhnyuvN5l7ZRYoKIuuI&limit=20&props=metadata,'
-      )
-      .then((res) => {
-        if (res.data) {
-          setRon(res.data.objects);
-          setIsRonLoading(false);
-        }
-      });
-  };
-
-  const getVodka = async () => {
-    setIsVodkaLoading(true);
-    await axios
-      .get(
-        'https://api.cosmicjs.com/v2/buckets/nomada-menu/objects?pretty=true&query=%7B%22type%22%3A%22vodkas%22%7D&read_key=48zpPNPQZB7NwgDJ5jAXBcVdebzxBEHBhnyuvN5l7ZRYoKIuuI&limit=20&props=metadata,'
-      )
-      .then((res) => {
-        if (res.data) {
-          setVodka(res.data.objects);
-          setIsVodkaLoading(false);
-        }
-      });
-  };
-
-  const getVino = async () => {
-    setIsVinoLoading(true);
-    await axios
-      .get(
-        'https://api.cosmicjs.com/v2/buckets/nomada-menu/objects?pretty=true&query=%7B%22type%22%3A%22vinos%22%7D&read_key=48zpPNPQZB7NwgDJ5jAXBcVdebzxBEHBhnyuvN5l7ZRYoKIuuI&limit=20&props=metadata,'
-      )
-      .then((res) => {
-        if (res.data) {
-          setVino(res.data.objects);
-          setIsVinoLoading(false);
-        }
-      });
-  };
-
-  const getCerveza = async () => {
-    setIsCervezaLoading(true);
-    await axios
-      .get(
-        'https://api.cosmicjs.com/v2/buckets/nomada-menu/objects?pretty=true&query=%7B%22type%22%3A%22cervezas%22%7D&read_key=48zpPNPQZB7NwgDJ5jAXBcVdebzxBEHBhnyuvN5l7ZRYoKIuuI&limit=20&props=metadata,'
-      )
-      .then((res) => {
-        if (res.data) {
-          setCerveza(res.data.objects);
-          setIsCervezaLoading(false);
-        }
-      });
-  };
+  const { data, error } = useSWR('fetch-posts', fetchPosts);
 
   useEffect(() => {
-    getBebidas();
-    getMixologia();
-    getTequilas();
-    getWhisky();
-    getCognac();
-    getGin();
-    getBrandy();
-    getRon();
-    getVodka();
-    getVino();
-    getCerveza();
-  }, []);
+    if (data) {
+      setBebidas(extractType('bebidas'));
+      setMixologia(extractType('mixologias'));
+      setTequilas(extractType('tequilas'));
+      setWhisky(extractType('whiskies'));
+      setCognac(extractType('cognacs'));
+      setGin(extractType('ginegras'));
+      setBrandy(extractType('brandies'));
+      setRon(extractType('rons'));
+      setVodka(extractType('vodkas'));
+      setVino(extractType('vinos'));
+      setCerveza(extractType('cervezas'));
+      setIsLoading(false);
+    }
+  }, [data]);
+
+  const extractType = (type) => {
+    return data.objects.filter((item) => item.type === type);
+  };
 
   const breakpointColumnsObj = {
     default: 3,
-    1199  : 2,
+    1199: 2,
     768: 1,
   };
 
@@ -211,21 +70,17 @@ const Grid = () => {
         className='my-masonry-grid'
         columnClassName='my-masonry-grid_column'
       >
-        <Card data={bebidas} title={'BEBIDAS'} isLoading={isBebidasLoading} />
-        <Card
-          data={mixologia}
-          title={'MIXOLOGÍA'}
-          isLoading={isMixologiaLoading}
-        />
-        <Card data={tequilas} title={'TEQUILA'} isLoading={isTequilasLoading} />
-        <Card data={whisky} title={'WHISKY'} isLoading={isWhiskyLoading} />
-        <Card data={Cognac} title={'COGNAC'} isLoading={isCognacLoading} />
-        <Card data={gin} title={'GIN'} isLoading={isGinLoading} />
-        <Card data={brandy} title={'BRANDY'} isLoading={isBrandyLoading} />
-        <Card data={ron} title={'RON'} isLoading={isRonLoading} />
-        <Card data={vodka} title={'VODKA'} isLoading={isVodkaLoading} />
-        <Card data={vino} title={'VINO'} isLoading={isVinoLoading} />
-        <Card data={cerveza} title={'CERVEZA'} isLoading={isCervezaLoading} />
+        <Card data={bebidas} title={'BEBIDAS'} isLoading={isLoading} />
+        <Card data={mixologia} title={'MIXOLOGÍA'} isLoading={isLoading} />
+        <Card data={tequilas} title={'TEQUILA'} isLoading={isLoading} />
+        <Card data={whisky} title={'WHISKY'} isLoading={isLoading} />
+        <Card data={Cognac} title={'COGNAC'} isLoading={isLoading} />
+        <Card data={gin} title={'GIN'} isLoading={isLoading} />
+        <Card data={brandy} title={'BRANDY'} isLoading={isLoading} />
+        <Card data={ron} title={'RON'} isLoading={isLoading} />
+        <Card data={vodka} title={'VODKA'} isLoading={isLoading} />
+        <Card data={vino} title={'VINO'} isLoading={isLoading} />
+        <Card data={cerveza} title={'CERVEZA'} isLoading={isLoading} />
       </Masonry>
     </div>
   );
