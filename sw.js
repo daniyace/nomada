@@ -27,7 +27,7 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-0d47cd6d664f7a8a0189.js"
+    "url": "webpack-runtime-3fb8f85a26396ce37c45.js"
   },
   {
     "url": "styles.1f0a3b2136018f9abbb6.css"
@@ -36,21 +36,29 @@ self.__precacheManifest = [
     "url": "framework-0bc7ec2303f4d0aaaa97.js"
   },
   {
-    "url": "app-ebb1731c765607f7133a.js"
+    "url": "app-f6dc945b03e1e26b4ecd.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "078df28864e5c6530f9500724792a80c"
+    "revision": "5eb931b4da3a4e35e8c47b54884b2b88"
   },
   {
     "url": "component---cache-caches-gatsby-plugin-offline-app-shell-js-2fce4a128279865b2764.js"
+  },
+  {
+    "url": "page-data/offline-plugin-app-shell-fallback/page-data.json",
+    "revision": "f2c002077289a7e1ac538802bc7f5314"
+  },
+  {
+    "url": "page-data/app-data.json",
+    "revision": "21e18445dd899da0dd192b7a7d3722c4"
   },
   {
     "url": "polyfill-9ffc14b68fb17fc48320.js"
   },
   {
     "url": "manifest.webmanifest",
-    "revision": "9e6fe729358145402bce6f30f1d10508"
+    "revision": "85276f205135055b472ef02193f56d34"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
@@ -155,12 +163,12 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   lastNavigationRequest = event.request.url
 
   let { pathname } = new URL(event.request.url)
-  pathname = pathname.replace(new RegExp(`^`), ``)
+  pathname = pathname.replace(new RegExp(`^/nomada`), ``)
 
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/app-ebb1731c765607f7133a.js`))) {
+  if (!resources || !(await caches.match(`/nomada/app-f6dc945b03e1e26b4ecd.js`))) {
     return await fetch(event.request)
   }
 
@@ -173,7 +181,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
     }
   }
 
-  const offlineShell = `/offline-plugin-app-shell-fallback/index.html`
+  const offlineShell = `/nomada/offline-plugin-app-shell-fallback/index.html`
   const offlineShellWithKey = workbox.precaching.getCacheKeyForURL(offlineShell)
   return await caches.match(offlineShellWithKey)
 })
