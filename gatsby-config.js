@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `nomada`,
-    siteUrl: `https://daniyace.github.io/nomada/`,
+    siteUrl: `https://daniyace.github.io/`,
   },
   pathPrefix: '/nomada',
   plugins: [
