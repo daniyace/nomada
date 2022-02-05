@@ -1,6 +1,6 @@
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import React, { useState } from 'react';
-import { useEffect } from 'react';
+import Masonry from 'react-masonry-css';
 import '../styles/grid.sass';
 import Card from './card';
 
@@ -198,23 +198,35 @@ const Grid = () => {
     getCerveza();
   }, []);
 
+  const breakpointColumnsObj = {
+    default: 3,
+    1199  : 2,
+    768: 1,
+  };
+
   return (
     <div className='grid'>
-      <Card data={bebidas} title={'BEBIDAS'} isLoading={isBebidasLoading} />
-      <Card
-        data={mixologia}
-        title={'MIXOLOGÍA'}
-        isLoading={isMixologiaLoading}
-      />
-      <Card data={tequilas} title={'TEQUILA'} isLoading={isTequilasLoading} />
-      <Card data={whisky} title={'WHISKY'} isLoading={isWhiskyLoading} />
-      <Card data={Cognac} title={'COGNAC'} isLoading={isCognacLoading} />
-      <Card data={gin} title={'GIN'} isLoading={isGinLoading} />
-      <Card data={brandy} title={'BRANDY'} isLoading={isBrandyLoading} />
-      <Card data={ron} title={'RON'} isLoading={isRonLoading} />
-      <Card data={vodka} title={'VODKA'} isLoading={isVodkaLoading} />
-      <Card data={vino} title={'VINO'} isLoading={isVinoLoading} />
-      <Card data={cerveza} title={'CERVEZA'} isLoading={isCervezaLoading} />
+      <Masonry
+        breakpointCols={breakpointColumnsObj}
+        className='my-masonry-grid'
+        columnClassName='my-masonry-grid_column'
+      >
+        <Card data={bebidas} title={'BEBIDAS'} isLoading={isBebidasLoading} />
+        <Card
+          data={mixologia}
+          title={'MIXOLOGÍA'}
+          isLoading={isMixologiaLoading}
+        />
+        <Card data={tequilas} title={'TEQUILA'} isLoading={isTequilasLoading} />
+        <Card data={whisky} title={'WHISKY'} isLoading={isWhiskyLoading} />
+        <Card data={Cognac} title={'COGNAC'} isLoading={isCognacLoading} />
+        <Card data={gin} title={'GIN'} isLoading={isGinLoading} />
+        <Card data={brandy} title={'BRANDY'} isLoading={isBrandyLoading} />
+        <Card data={ron} title={'RON'} isLoading={isRonLoading} />
+        <Card data={vodka} title={'VODKA'} isLoading={isVodkaLoading} />
+        <Card data={vino} title={'VINO'} isLoading={isVinoLoading} />
+        <Card data={cerveza} title={'CERVEZA'} isLoading={isCervezaLoading} />
+      </Masonry>
     </div>
   );
 };

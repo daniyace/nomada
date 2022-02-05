@@ -33,6 +33,19 @@ const Card = ({ data, title, isLoading }) => {
           </div>
         ) : (
           <div className='data-card-body'>
+            {!data[0]?.metadata.precio && (
+              <div className='d-flex pt-1'>
+                <div className='col-6'></div>
+                <div className='col-6 d-flex'>
+                  <div className='col-6 text-end'>
+                    <span className='fw-bolder'>Copa</span>
+                  </div>
+                  <div className='col-6 text-end'>
+                    <span className='fw-bolder'>Botella</span>
+                  </div>
+                </div>
+              </div>
+            )}
             {sortByPrice(data).map((item, index) => (
               <div
                 key={index}
