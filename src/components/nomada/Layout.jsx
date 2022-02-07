@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import logo from '../../images/logo.png';
 
 const Layout = ({ children }) => {
   return (
@@ -7,7 +8,7 @@ const Layout = ({ children }) => {
       <nav className='navbar navbar-light bg-light sticky-top'>
         <div className='container-fluid'>
           <Link className='navbar-brand' to='/nomada'>
-            Shy Menu
+            <img src={logo} alt='Nómada' className='logo' />
           </Link>
           <button
             className='navbar-toggler'
@@ -27,7 +28,7 @@ const Layout = ({ children }) => {
           >
             <div className='offcanvas-header'>
               <h5 className='offcanvas-title' id='offcanvasNavbarLabel'>
-                Restaurantes
+                Nómada
               </h5>
               <button
                 type='button'
@@ -39,12 +40,8 @@ const Layout = ({ children }) => {
             <div className='offcanvas-body'>
               <ul className='navbar-nav justify-content-end flex-grow-1 pe-3'>
                 <li className='nav-item'>
-                  <Link
-                    to='/nomada'
-                    className='nav-link'
-                    activeClassName='active'
-                  >
-                    Nómada
+                  <Link to='/' className='nav-link' activeClassName='active'>
+                    Inicio
                   </Link>
                 </li>
               </ul>
@@ -55,7 +52,7 @@ const Layout = ({ children }) => {
       {children}
       <div className='container text-center pb-1 sticky-bottom'>
         <small className='bottom-text'>
-          Shy Menu &copy; 2022 por{' '}
+          Nómada &copy; 2022 por{' '}
           <a
             href='https://github.com/daniyace'
             target={'_blank'}

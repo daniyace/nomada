@@ -1,16 +1,17 @@
 import React from 'react';
-import Grid from '../components/Grid';
-import '../styles/global.sass';
 import Seo from '../components/Seo';
 import Layout from '../components/Layout';
+import GridRestaurant from '../components/GridRestaurant';
+import '../styles/global.sass';
 
 const index = () => {
   return (
     <>
-      <Seo title='Menú Nómada' />
+      <Seo title='Menú web para restaurantes' />
       <Layout>
+        <h2 className='text-center mt-3'>Comercios afiliados</h2>
         <section className='container grid-container'>
-          <Grid />
+          <GridRestaurant />
         </section>
       </Layout>
     </>

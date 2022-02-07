@@ -10,10 +10,10 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Nómada`,
-        short_name: `Nómada`,
+        name: `Shy Menu`,
+        short_name: `Shy Menu`,
         start_url: `/`,
-        description: `Carta de nómada`,
+        description: `Menú web para restaurantes`,
         icon: `src/images/appicon.png`,
         icon_options: {
           purpose: `any maskable`,
