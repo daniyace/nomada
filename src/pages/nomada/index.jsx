@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import useSWR from 'swr';
 import Cosmic from 'cosmicjs';
 import Swal from 'sweetalert2';
-import Grid from '../components/nomada/Grid';
-import Layout from '../components/nomada/Layout';
-import Seo from '../components/Seo';
-import '../styles/global.sass';
+import Grid from '../../components/nomada/Grid';
+import Layout from '../../components/nomada/Layout';
+import Seo from '../../components/Seo';
+import '../../styles/global.sass';
 
 const api = Cosmic();
 

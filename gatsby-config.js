@@ -1,8 +1,8 @@
 module.exports = {
-  pathPrefix: '/nomada',
+  //pathPrefix: '/nomada', //for gh-pages deployment
   siteMetadata: {
-    title: `nomada`,
-    siteUrl: `https://daniyace.github.io/nomada/`,
+    title: `Shy Menu`,
+    siteUrl: `https://www.shymenu.com/`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
