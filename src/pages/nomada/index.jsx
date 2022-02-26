@@ -109,11 +109,6 @@ const NomadaIndex = () => {
     }
   }, [food, typesf, errorf, errorft]);
 
-  const breakpointColumnsObj = {
-    1199: 2,
-    768: 1,
-  };
-
   return (
     <>
       <Seo title='Nómada' />

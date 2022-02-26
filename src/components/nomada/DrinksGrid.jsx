@@ -14,7 +14,7 @@ const DrinksGrid = ({ products, isLoading }) => {
     <div className='grid'>
       {isLoading ? (
         <div className='d-flex justify-content-center mt-3'>
-          <div className='spinner-border' role='status'>
+          <div className='spinner-border text-light' role='status'>
             <span className='visually-hidden'>cargando...</span>
           </div>
         </div>

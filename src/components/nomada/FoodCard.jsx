@@ -25,10 +25,13 @@ const FoodCard = ({ data, title, isLoading }) => {
       return array[0].metadata.precio
         ? array.sort(
             (a, b) =>
-              parseFloat(a.metadata.precio) - parseFloat(b.metadata.precio)
+              Math.abs(parseFloat(a.metadata.precio)) -
+              Math.abs(parseFloat(b.metadata.precio))
           )
         : array.sort(
-            (a, b) => parseFloat(a.metadata.copa) - parseFloat(b.metadata.copa)
+            (a, b) =>
+              Math.abs(parseFloat(a.metadata.copa)) -
+              Math.abs(parseFloat(b.metadata.copa))
           );
     } else return [];
   };
