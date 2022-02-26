@@ -38,7 +38,7 @@ const FoodCard = ({ data, title, isLoading }) => {
       <div className='data-card'>
         <div className='data-card-title'>
           <p
-            className=' text-center m-0 py-2 fs-2 bg-white'
+            className=' text-center m-0 py-2 fs-3 bg-white'
             type='button'
             data-bs-toggle='collapse'
             data-bs-target={`#${title}`}
@@ -54,9 +54,9 @@ const FoodCard = ({ data, title, isLoading }) => {
           <div className='arrow-left'></div>
         </div>
         <div className='collapse' id={title}>
-          <div className='data-card-body mt-4'>
+          <div className='data-card-body pt-3'>
             {!data[0]?.metadata.precio && (
-              <div className='d-flex pt-1'>
+              <div className='d-flex'>
                 <div className='col-6'></div>
                 <div className='col-6 d-flex text-white'>
                   <div className='col-6 text-end'>
@@ -80,8 +80,8 @@ const FoodCard = ({ data, title, isLoading }) => {
                   <p
                     className={
                       item.metadata.precio && !item.metadata.importado
-                        ? 'm-0'
-                        : 'm-0 col-5'
+                        ? 'm-0 name'
+                        : 'm-0 name col-5'
                     }
                   >
                     {item.metadata.nombre}
@@ -111,14 +111,19 @@ const FoodCard = ({ data, title, isLoading }) => {
                   {!item.metadata.precio && (
                     <p className='m-0 col-6 d-flex justify-content-end'>
                       <span className='col-6 text-end'>
-                        {formatMoney(item.metadata.copa)}
+                        {formatMoney(item.metadata.individual)}
                       </span>
                       <span className='col-6 text-end'>
-                        {formatMoney(item.metadata.botella)}
+                        {formatMoney(item.metadata.grande)}
                       </span>
                     </p>
                   )}
                 </div>
+                {item.metadata.descripcion && (
+                  <p className='m-0 text-white description text-guiones'>
+                    {item.metadata.descripcion}
+                  </p>
+                )}
               </div>
             ))}
             {title === 'TIERRA' && (

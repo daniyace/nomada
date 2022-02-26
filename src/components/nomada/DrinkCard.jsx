@@ -28,7 +28,7 @@ const DrinkCard = ({ data, title, isLoading }) => {
       <div className='data-card'>
         <div className='data-card-title'>
           <p
-            className=' text-center m-0 py-2 fs-2 bg-white'
+            className=' text-center m-0 py-2 fs-3 bg-white'
             type='button'
             data-bs-toggle='collapse'
             data-bs-target={`#${title}`}
@@ -44,7 +44,7 @@ const DrinkCard = ({ data, title, isLoading }) => {
           <div className='arrow-left'></div>
         </div>
         <div className='collapse' id={title}>
-          <div className='data-card-body mt-4'>
+          <div className='data-card-body mt-3'>
             {!data[0]?.metadata.precio && (
               <div className='d-flex pt-1'>
                 <div className='col-6'></div>
@@ -67,16 +67,16 @@ const DrinkCard = ({ data, title, isLoading }) => {
                     : 'd-flex data-card-row align-items-center text-white'
                 }
               >
-                <p className={item.metadata.precio ? 'm-0' : 'm-0 col-6'}>
+                <p className={item.metadata.precio ? 'm-0 name' : 'm-0 col-6 name'}>
                   {item.metadata.nombre}
                 </p>
                 {item.metadata.precio && (
-                  <p className='m-0'>
+                  <p className='m-0 price'>
                     <span>{formatMoney(item.metadata.precio)}</span>
                   </p>
                 )}
                 {!item.metadata.precio && (
-                  <p className='m-0 col-6 d-flex justify-content-end'>
+                  <p className='m-0 col-6 d-flex justify-content-end price'>
                     <span className='col-6 text-end'>
                       {formatMoney(item.metadata.copa)}
                     </span>
