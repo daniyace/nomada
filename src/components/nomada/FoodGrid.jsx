@@ -1,9 +1,9 @@
 import React from 'react';
 import Masonry from 'react-masonry-css';
-import Card from './card';
-import '../../styles/nomada/grid.sass';
+import FoodCard from './FoodCard';
+import './styles/grid.sass';
 
-const Grid = ({ products, isLoading }) => {
+const FoodGrid = ({ products, isLoading }) => {
   const breakpointColumnsObj = {
     default: 3,
     1199: 2,
@@ -25,7 +25,7 @@ const Grid = ({ products, isLoading }) => {
           columnClassName='my-masonry-grid_column'
         >
           {products.map((list, index) => (
-            <Card
+            <FoodCard
               key={index}
               data={list.products}
               title={list.type.toUpperCase()}
@@ -37,4 +37,4 @@ const Grid = ({ products, isLoading }) => {
   );
 };
 
-export default Grid;
+export default FoodGrid;

@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import logo from '../../images/logo.png';
+import logo from '../../images/logo-white.png';
 
 const Layout = ({ children }) => {
   return (
     <>
-      <nav className='navbar navbar-light bg-light sticky-top'>
+      <nav className='navbar navbar-dark bg-black sticky-top'>
         <div className='container-fluid'>
           <Link className='navbar-brand' to='/nomada'>
             <img src={logo} alt='Nómada' className='logo' />
@@ -40,7 +40,7 @@ const Layout = ({ children }) => {
             <div className='offcanvas-body'>
               <ul className='navbar-nav justify-content-end flex-grow-1 pe-3'>
                 <li className='nav-item'>
-                  <Link to='/' className='nav-link' activeClassName='active'>
+                  <Link to='/' className='nav-link color-black' activeClassName='active'>
                     Inicio
                   </Link>
                 </li>
@@ -49,14 +49,15 @@ const Layout = ({ children }) => {
           </div>
         </div>
       </nav>
-      {children}
-      <div className='container text-center pb-1 sticky-bottom'>
-        <small className='bottom-text'>
-          Nómada &copy; 2022 por{' '}
+      <main className='bg-black'>{children}</main>
+      <div className='container text-center pb-1 sticky-bottom bg-black '>
+        <small className='bottom-text text-white'>
+          Nómada &copy; {new Date().getFullYear()} por{' '}
           <a
             href='https://github.com/daniyace'
             target={'_blank'}
             rel='noopener noreferrer'
+            className='text-white'
           >
             Daniyace
           </a>

@@ -1,4 +1,4 @@
-@import '../colors'
+@import 'colors'
 
 .grid
   width: 100%
@@ -22,23 +22,21 @@
   padding: 1rem
   .data-card-title
     position: relative
-    border-bottom: 2px dashed $BORDER_COLOR
-    &::before
-      content: ''
-      display: block
-      position: absolute
-      top: 0
-      width: 100%
-      height: 100%
-      opacity: 0.25
-      background-image: url('../../images/nomada/pattern.png')
-      background-size: cover
-      background-position: center
-      background-repeat: no-repeat
-      border-radius: 1rem
+  .arrow-left
+    width: 0
+    height: 0
+    border-top: 55px solid transparent
+    border-bottom: 55px solid transparent
+    position: absolute
+    // move to the middle
+    left: 100%
+    top: 50%
+    transform: translate(-90%, -50%)
+    border-right: 55px solid #000
+
   .data-card-body
     .data-card-row
       padding-top: .3rem
       padding-bottom: .3rem
-      span
+      .price
         font-weight: 500
