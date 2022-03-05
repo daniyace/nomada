@@ -13,9 +13,7 @@ const FoodGrid = ({ products, isLoading }) => {
   return (
     <div className='grid'>
       {isLoading ? (
-        <div
-          className='d-flex justify-content-center mt-3'
-        >
+        <div className='d-flex justify-content-center mt-3'>
           <div className='spinner-border text-light' role='status'>
             <span className='visually-hidden'>cargando...</span>
           </div>
@@ -31,6 +29,7 @@ const FoodGrid = ({ products, isLoading }) => {
               key={index}
               data={list.products}
               title={list.type.toUpperCase()}
+              index={index}
             />
           ))}
         </Masonry>

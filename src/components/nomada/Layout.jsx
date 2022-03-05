@@ -49,7 +49,7 @@ const Layout = ({ children }) => {
           </div>
         </div>
       </nav>
-      <main className='bg-black'>{children}</main>
+      <main className='bg-black '>{children}</main>
       <div className='container text-center pb-1 sticky-bottom bg-black '>
         <small className='bottom-text text-white'>
           Nómada &copy; {new Date().getFullYear()} por{' '}
